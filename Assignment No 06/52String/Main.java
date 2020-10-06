@@ -1,0 +1,24 @@
+/*
+Input name of a person and count how many vowels it contains.  
+Use String class functions. 
+*/
+
+package com.student;
+import java.util.Scanner;
+public class Main {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		String str=sc.nextLine();
+		int len=str.length();
+	    int count=0;
+		for(int i=0;i<len-1;i++) {
+			if(str.charAt(i)=='a' || str.charAt(i)=='i' ||str.charAt(i)=='o'|| str.charAt(i)=='e'||str.charAt(i)=='u') {
+				count++;
+			}
+		}
+    System.out.println("Vowels in name is "+count);
+    sc.close();
+	}
+
+}

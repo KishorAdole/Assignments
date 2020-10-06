@@ -13,6 +13,8 @@ class Tile{
 	this.lengthOfTile = lengthOfTile;	
 	}
 
+	public int getLength(){return lengthOfTile; }
+
 }
 
 class Floor extends Tile{
@@ -21,16 +23,18 @@ class Floor extends Tile{
 	private int width;
 	private int totalTiles;
 
-	Floor( int lengthOfTile,int length, int width){
-	super(lengthOfTile);
+	//Floor( int lengthOfTile,int length, int width)
+	Floor(int length, int width){
+	//super(lengthOfTile);
 	this.length=length;	
 	this.width=width;
 
 	}
 
-	public void totalTiles(){
-	totalTiles =(length*width)/lengthOfTile;
+	public void totalTiles(Tile t){
+	totalTiles =(length*width)/(t.getLength()*t.getLength());
 	System.out.println("Total no. of tiles required to cover the floor : "+totalTiles);
+	//System.out.println("length if tile: "+lengthOfTile);
 	
 	}
 
@@ -48,9 +52,10 @@ class Main{
 		int length=scanner.nextInt();
 		System.out.println("Enter the width of the floor");
 		int width=scanner.nextInt();
-
-		Floor f = new Floor(lengthOfTile, length, width);
-			f.totalTiles();	
+		
+		Tile t=new Tile(lengthOfTile);
+		Floor f = new Floor(length, width);
+			f.totalTiles(t);	
 	}
 
 }
